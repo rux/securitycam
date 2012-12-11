@@ -48,7 +48,7 @@ function takeTheShot() {
 	ctxDiff.putImageData(imageDiffData, 0, 0);
 
 	// do we gots to go crazy here, boy?
-	var movement = !(imagediff.equal(snap1, snap2, 130));	//the equal test returns true if the images are similar.
+	var movement = !(imagediff.equal(snap1, snap2, 140));	//the equal test returns true if the images are similar.
 															// but I like it to be true when there's movement
 	soundTheAlarm(movement);
 }
@@ -63,14 +63,12 @@ function soundTheAlarm(theresSomethingMovingOutThere) {
 	if (score > 255) {score = 255;}
 	if (score < 0) {score = 0;}
 
-	var minThreshold = 50, maxThreshold = 120;
+	var minThreshold = 50, maxThreshold = 140;
 	var unfilteredCol = ( -minThreshold + score * 255/(maxThreshold) );
 
 	col = Math.round( unfilteredCol );
 	if (col > 255) {col = 255;}
 	if (col < 0) {col = 0;}
-
-	// $("#score").html("score is "+ score + " col is " + col + " and unfiltered is " + unfilteredCol  );
 
 	if (score > maxThreshold) {
 		$("#score").html("DANGER!");
