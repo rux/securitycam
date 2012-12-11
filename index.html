@@ -5,64 +5,16 @@
 		<link rel="stylesheet" href="css/styles.css" />
 		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<script type="text/javascript" src="js/imagediff.js"></script>
 		<script type="text/javascript" src="js/cam.js"></script>
 	</head>
 	<body>
 		<h1>Ruxor Security</h1>
-
-		<button id="look" onClick="takeTheShot();">Look</button>
-
 		<div id="vidContainer">
-			<video id="video"></video>
-			<canvas id="snap1" class="snapshot"></canvas>
-			<canvas id="snap2" class="snapshot"></canvas>
+			<video id="video" class="video same-size-isnt-it"></video>
+			<canvas id="snap1" class="snapshot same-size-isnt-it"></canvas>
+			<canvas id="snap2" class="snapshot same-size-isnt-it"></canvas>
+			<canvas id="diff" class="diff same-size-isnt-it"></canvas>
 		</div>
-
-
-
-<script>
-  
-window.URL = window.URL || window.webkitURL || window.mozURL || window.msURL;
-$(document).ready(init());
-
-function init() {
-	var n=navigator;
-	n.getUserMedia = n.getUserMedia || n.webkitGetUserMedia || n.mozGetUserMedia || n.msGetUserMedia;
-	console.log(n);
-	n.getUserMedia({video: true, audio: false}, onSuccess, onError);
-}
-
-function onSuccess(stream) {
-	console.log("Got a stream");
-	var video = document.getElementById("video");
-	video.src = window.URL.createObjectURL(stream);
-	video.autoplay = true;
-}
-function onError() {
-	console.log("Failed to get a stream");
-}
-
-function takeTheShot() {
-	console.log("looking now");
-	var vid = document.getElementById("video");
-
-	var snap1 = document.getElementById("snap1"),
-		snap2 = document.getElementById("snap2");
-	var ctx1 = snap1.getContext("2d"),
-		ctx2 = snap2.getContext("2d");
-
-	// First copy from the last sample to the 2nd place, then populate the first with a new image;
-	ctx2.drawImage(snap1, 0, 0, snap2.width, snap2.height);
-	ctx1.drawImage(vid,0,0, snap1.width, snap1.height);
-
-}
-
-
-
-
-
-
-</script>
-
 	</body>
 </html>

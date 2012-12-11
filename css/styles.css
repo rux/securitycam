@@ -1,14 +1,28 @@
+body {
 
+   -webkit-transition:background-color 0.5s ease-in;  
+   -moz-transition:background-color 0.5s ease-in;  
+   -o-transition:background-color 0.5s ease-in;  
+   transition:background-color 0.5s ease-in; 
+}
 
-
-#video {
-	width:400px;
-	height:300px;
-	border:1px solid red;
+.video {
+	border:1px solid red;	
 }
 
 .snapshot {
-	width:400px;
-	height:300px;
+	border: 1px solid green;
+}
+
+.diff {
 	border: 1px solid blue;
+}
+
+.same-size-isnt-it {
+	width:320px;
+	height:240px;
+}
+
+.movement-detected {
+	background-color:red;
 }
