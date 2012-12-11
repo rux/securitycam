@@ -1,9 +1,9 @@
 body {
-
-   -webkit-transition:background-color 0.5s ease-in;  
-   -moz-transition:background-color 0.5s ease-in;  
-   -o-transition:background-color 0.5s ease-in;  
-   transition:background-color 0.5s ease-in; 
+	background-color:black;
+   -webkit-transition:background-color 0.1s linear;  
+   -moz-transition:background-color 0.1s linear;  
+   -o-transition:background-color 0.1s linear;  
+   transition:background-color 0.1s linear;  
 }
 
 .video {
@@ -12,6 +12,7 @@ body {
 
 .snapshot {
 	border: 1px solid green;
+	display:none;
 }
 
 .diff {
@@ -23,6 +24,7 @@ body {
 	height:240px;
 }
 
-.movement-detected {
-	background-color:red;
+.score {
+	font-size:4em;
+	line-height:1em;
 }
