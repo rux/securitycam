@@ -1,8 +1,9 @@
 <html>
 	<head>
 		<title>Ruxor Security</title>
-		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/cam.js"></script>
 	</head>
@@ -31,8 +32,8 @@ function init() {
 function onSuccess(stream) {
 	console.log("Got a stream");
 	var video = document.getElementById("video");
-	video.autoplay = true;
 	video.src = window.URL.createObjectURL(stream);
+	video.autoplay = true;
 }
 function onError() {
 	console.log("Failed to get a stream");
