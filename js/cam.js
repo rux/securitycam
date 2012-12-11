@@ -36,15 +36,16 @@ function takeTheShot() {
 	ctxDiff.putImageData(imageDiffData, 0, 0);
 
 	// do we gots to go crazy here, boy?
-	soundTheAlarm(imagediff.equal(snap1, snap2, 200));
+	var movement = !(imagediff.equal(snap1, snap2, 200)) // the equal test returns true if the images are similar.
+																// but I like it to be true when there's movement
+	soundTheAlarm(movement);
 }
 
-function soundTheAlarm(theresNothingMovingOutThere) {
-	if (theresNothingMovingOutThere) {
-		console.log("all quiet");
-		$("body").removeClass("movement-detected");
-	} else {
+function soundTheAlarm(theresSomethingMovingOutThere) {
+	if (theresSomethingMovingOutThere) {
 		$("body").addClass("movement-detected");
+	} else {
+		$("body").removeClass("movement-detected");
 	}
 }
 
