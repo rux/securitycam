@@ -14,7 +14,12 @@ function init() {
 
 function onSuccess(stream) {
 	var video = document.getElementById("video");
-	video.src = window.URL.createObjectURL(stream);
+	// Opera test - opera does it direct
+	if (undefined === window.URL) {
+		video.src = stream
+	} else {
+		video.src = window.URL.createObjectURL(stream);
+	}
 	video.autoplay = true;
 	setInterval(takeTheShot, 100);
 }
